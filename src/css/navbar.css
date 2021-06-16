@@ -1,0 +1,22 @@
+.navbar{
+    margin-top: 1em;
+    height: 50px;
+}
+
+.navbar__ul{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.navbar__ul__li{
+    color: #444;
+    text-align: center;
+    cursor: pointer;
+}
+
+.navbar__ul__li:hover{
+    color: blue;
+}
