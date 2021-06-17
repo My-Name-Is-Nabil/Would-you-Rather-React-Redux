@@ -1,11 +1,11 @@
 .navbar{
     margin-top: 1em;
     height: 50px;
+    display: flex;
 }
 
 .navbar__ul{
-    width: 70%;
-    margin: 0 auto;
+    width: 40%;
     display: flex;
     justify-content: space-evenly;
     list-style: none;
@@ -15,8 +15,25 @@
     color: #444;
     text-align: center;
     cursor: pointer;
+    padding: 1em 0;
 }
 
 .navbar__ul__li:hover{
     color: blue;
+}
+
+.navbar__user{
+    margin-left: 42%;
+    display: flex;
+}
+
+.navbar__user__avatar{
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.navbar__user__name{
+    padding: 1em;
 }

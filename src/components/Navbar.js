@@ -1,7 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 class Navbar extends React.Component{
+    showUserOrLogin(loggedUser){
+        if (loggedUser !== null){
+        return (<div className="navbar__user">
+                <img className="navbar__user__avatar" src={'http://'+this.props.loggedUser.avatarURL} alt="Avatar"></img>
+                <span className="navbar__user__name"> { this.props.loggedUser.name } </span>
+            </div>);
+        }
+        return <div className="navbar__user" style={{padding: '1em', marginLeft: '45%',}}> Login </div>
+    }
     render(){
+        const { loggedUser } = this.props;
         return (
             <div className="navbar">
                 <ul className="navbar__ul">
@@ -15,13 +25,7 @@ class Navbar extends React.Component{
                         Leader Board
                     </li>
                 </ul>
-                { this.props.loggedUser !== null &&
-                    (<div className="navbar__user">
-                        <img className="navbar__user__avatar" src={this.props.loggedUser.avatarURL}></img>
-                        <span className="navbar__user__name"> { this.props.loggedUser.name } </span>
-                    </div>
-                    )
-                }
+                {this.showUserOrLogin(loggedUser)}
             </div>
         );
     }

@@ -3,12 +3,18 @@ import User from './User';
 import { handleReceiveUsers } from '../actions/users';
 import { connect } from 'react-redux';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+import { handleSetLoggedUserId } from '../actions/loggedUserId'; 
 class Login extends React.Component{
     componentDidMount() {
         this.props.dispatch(handleReceiveUsers());
-    }
+    };
+    logUserIn = (e, id) => {
+        console.log(id);
+        this.props.dispatch(handleSetLoggedUserId(id));
+    };
     render(){
         const { isOpen, usersIds } = this.props;
+        const logUserIn = this.logUserIn;
         return (
             <div className="login">
                 <h3 className="login__title"> Choose a user to log in</h3>
@@ -21,7 +27,7 @@ class Login extends React.Component{
                     if(isOpen)
                         return (
                             <div>
-                                { usersIds.map( id => <User key={id} id={id} />) }
+                                { usersIds.map( id => <User onClick={e => logUserIn(e, id)} key={id} id={id} />) }
                             </div>
                         ) 
                     })()

@@ -2,13 +2,11 @@ import React from 'react';
 import Navbvar from './Navbar'; 
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
-import { setLoggedUserId } from '../actions/loggedUserId';
 import { connect } from 'react-redux';
 class App extends React.Component {
   state = {
     isLoginMenuOpen: false,
   };
-  login = React.createRef();
   handleClick = e => {
     // Can you suggest a better way to reference the button ? 
     const button = document.querySelector('.login__expand-button');
@@ -29,10 +27,10 @@ class App extends React.Component {
       <div onClick={this.handleClick}>
         <LoadingBar />
         <Navbvar />
-        <Login ref={this.login} isOpen={this.state.isLoginMenuOpen} />
+        <Login isOpen={this.state.isLoginMenuOpen} />
       </div>
   );
   }
 }
 
-export default connect()(App);
+export default App;

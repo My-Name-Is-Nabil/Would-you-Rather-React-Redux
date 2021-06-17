@@ -5,7 +5,7 @@ class User extends React.Component{
         const users = this.props.users;
         const id = this.props.id;
         return (
-            <div className="user">
+            <div className="user" onClick={this.props.onClick}>
                 <img className="user__avatar" alt='Avatar' src={'http://'+users[id].avatarURL} />
                 <div className="user__name"> {users[id].name} </div>
             </div>
