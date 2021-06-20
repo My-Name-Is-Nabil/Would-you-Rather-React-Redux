@@ -15,11 +15,12 @@
     color: #444;
     text-align: center;
     cursor: pointer;
-    padding: 1em 0;
+    padding: 1.1em 0;
+    text-decoration: none;
 }
 
 .navbar__ul__li:hover{
-    color: blue;
+    color:#0a92cc;
 }
 
 .navbar__user{
@@ -35,5 +36,22 @@
 }
 
 .navbar__user__name{
-    padding: 1em;
+    padding: 1.2em 0.5em;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #444;
+}
+a:hover { 
+    text-decoration: none;
+    color:#444;
+}
+a:focus {
+    text-decoration: none;
+    color:#444; 
 }

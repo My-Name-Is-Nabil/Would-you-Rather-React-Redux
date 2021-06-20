@@ -4,15 +4,18 @@ import { handleReceiveUsers } from '../actions/users';
 import { connect } from 'react-redux';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { handleSetLoggedUserId } from '../actions/loggedUserId'; 
+import { withRouter, Redirect } from 'react-router-dom';
 class Login extends React.Component{
     componentDidMount() {
         this.props.dispatch(handleReceiveUsers());
     };
     logUserIn = (e, id) => {
-        console.log(id);
         this.props.dispatch(handleSetLoggedUserId(id));
+        this.props.history.push('/');
     };
     render(){
+        if (this.props.loggedUser)
+            return <Redirect to='/' />;
         const { isOpen, usersIds } = this.props;
         const logUserIn = this.logUserIn;
         return (
@@ -37,9 +40,10 @@ class Login extends React.Component{
     } 
 }
 
-function mapStateToProps({ users }){
+function mapStateToProps({ users, loggedUserId }){
     return {
         usersIds: Object.keys(users),
-    }
+        loggedUser: users[loggedUserId],
+    };
 }
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));

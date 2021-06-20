@@ -11,7 +11,13 @@ import middleware from './middleware/index';
 import './css/navbar.css';
 import './css/user.css';
 import './css/login.css'
-let store = createStore(reducer ,middleware);
+
+const state = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
+
+let store = createStore(reducer, state, middleware);
+store.subscribe(() => {
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
 
 ReactDOM.render(
   <React.StrictMode>

@@ -12,7 +12,9 @@ function receiveUsers(users){
 export function handleReceiveUsers(){
     return dispatch => {
         dispatch(showLoading());
-        getUsers().then( users => dispatch(receiveUsers(users)) );
+        getUsers().then(users => {
+            dispatch(receiveUsers(users))
+        });
         dispatch(hideLoading());
     }
 }
