@@ -3,6 +3,7 @@ import Navbvar from './Navbar';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Home from './Home';
+import Page404 from './Page404';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 class App extends React.Component {
@@ -41,6 +42,9 @@ class App extends React.Component {
           </Route>
           <Route exact path="/">
             { this.handleHomePage(this.props.loggedUser)}
+          </Route>
+          <Route>
+            <Page404 />
           </Route>
         </Switch>
       </div>

@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 class Navbar extends React.Component{
     showUserOrLogin(loggedUser){
         if (loggedUser !== null){
-        return (<div className="navbar__user">
-                <img className="navbar__user__avatar" src={'http://'+this.props.loggedUser.avatarURL} alt="Avatar"></img>
-                <span className="navbar__user__name"> { this.props.loggedUser.name } </span>
-            </div>);
+            return (
+                <div className="navbar__user">
+                    <img className="navbar__user__avatar" src={'http://'+this.props.loggedUser.avatarURL} alt="Avatar"></img>
+                    <span className="navbar__user__name"> { this.props.loggedUser.name } </span>
+                </div>
+            );
         }
         return <div className="navbar__user" style={{padding: '1em', marginLeft: '45%', color: '#444',}}> Login </div>
     }
@@ -16,21 +18,21 @@ class Navbar extends React.Component{
         return (
             <div className="navbar">
                 <ul className="navbar__ul">
-                    <Link to='/'>
-                        <li className="navbar__ul__li">
+                    <li className="navbar__ul__li">
+                        <NavLink className="navbar-link" to='/' exact activeClassName="active">
                             Home
-                        </li>
-                    </Link>
-                    <Link to='/questions'>
-                        <li className="navbar__ul__li">
-                            New Questions
-                        </li>
-                    </Link>
-                    <Link to='/leaderboard'>
-                        <li className="navbar__ul__li">
-                            Leader Board
-                        </li>
-                    </Link>
+                        </NavLink>
+                    </li>
+                    <li className="navbar__ul__li">
+                        <NavLink className="navbar-link" to='/add' exact activeClassName="active">
+                            New Question
+                        </NavLink>
+                    </li>
+                    <li className="navbar__ul__li">
+                        <NavLink className="navbar-link" to='/leaderboard' exact activeClassName="active">
+                            LeaderBoard
+                        </NavLink>
+                    </li>
                 </ul>
                 {this.showUserOrLogin(loggedUser)}
             </div>

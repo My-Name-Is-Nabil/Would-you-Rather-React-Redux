@@ -14,13 +14,8 @@
 .navbar__ul__li{
     color: #444;
     text-align: center;
-    cursor: pointer;
     padding: 1.1em 0;
     text-decoration: none;
-}
-
-.navbar__ul__li:hover{
-    color:#0a92cc;
 }
 
 .navbar__user{
@@ -39,19 +34,24 @@
     padding: 1.2em 0.5em;
 }
 
-a{
+.navbar-link{
     text-decoration: none;
 }
 
-a:visited {
-    text-decoration: none;
-    color: #444;
+.navbar-link.active{
+    color: #0a92cc;
 }
-a:hover { 
+
+.navbar-link:hover { 
     text-decoration: none;
-    color:#444;
+    color:#0a92cc;
 }
-a:focus {
+
+.navbar-link:focus {
     text-decoration: none;
-    color:#444; 
+    color:#0a92cc;
+}
+
+a:visited{
+    color: inherit;
 }

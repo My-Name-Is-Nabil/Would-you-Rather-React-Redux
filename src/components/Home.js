@@ -21,7 +21,7 @@ class Home extends React.Component{
             .map( question => <Question author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />)
         return this.props.questionsIds.map( id => questions[id])
         .filter( question => loggedUser.answers[question.id])
-        .map( question => <Question author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />);
+        .map( question => <Question key={question.id} author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />);
     }
     showAnsweredQuestions = () => {
         this.setState({
