@@ -1,6 +1,5 @@
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-
 export const SET_LOGGED_USER_ID = 'SET_LOGGED_USER_ID';
+export const LOGOUT = 'LOGOUT';
 
 function setLoggedUserId(id){
     return {
@@ -11,8 +10,18 @@ function setLoggedUserId(id){
 
 export function handleSetLoggedUserId(id){
     return function(dispatch){
-        dispatch(showLoading());
         dispatch(setLoggedUserId(id));
-        dispatch(hideLoading());
-    }
+    };
+}
+
+function logoutUser(){
+    return {
+        type: LOGOUT,
+    };
+}
+
+export function handleLogoutUser(){
+    return function(dispatch){
+        dispatch(logoutUser());
+    };
 }

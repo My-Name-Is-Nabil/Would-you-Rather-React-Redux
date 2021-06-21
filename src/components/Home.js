@@ -2,7 +2,6 @@ import React from 'react';
 import Question from './Question';
 import { handleReceiveQuestions } from '../actions/questions';
 import { connect } from 'react-redux';
-import loggedUserId from '../reducers/loggedUserId';
 class Home extends React.Component{
     state = {
         showAnsweredQuestions: false,
@@ -13,12 +12,16 @@ class Home extends React.Component{
         this.props.dispatch(handleReceiveQuestions());
     }
     renderQuestions(){
-        console.log(this.props);
-        const { questions, users, loggedUser }  = this.props;
-        if (this.state.showAnsweredQuestions)
+        const { users, questions, loggedUser, questionsLoading } = this.props;
+        if (this.state.showAnsweredQuestions){
+            if (questionsLoading)
+                return <p className="questions-loading"> Loading </p>;
             return this.props.questionsIds.map( id => questions[id])
             .filter( question => !loggedUser.answers[question.id])
-            .map( question => <Question author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />)
+            .map( question => <Question key={question.id} author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />)
+        }
+        if (questionsLoading)
+            return <p className="questions-loading"> Loading </p>;
         return this.props.questionsIds.map( id => questions[id])
         .filter( question => loggedUser.answers[question.id])
         .map( question => <Question key={question.id} author={users[question.author]} optionOne={question.optionOne} optionTwo={question.optionTwo} />);
@@ -52,16 +55,18 @@ class Home extends React.Component{
                     }    
                 </div>
             </div>
-        )
+        );
     }
 }
 
-function mapStateToProps({ questions, users, loggedUserId }){
+function mapStateToProps({ questions, questionsLoading, users, loggedUserId }){
     return {
         questionsIds: Object.keys(questions),
         questions,
+        questionsLoading,
         users,
-        loggedUser: users[loggedUserId],
+        loggedUser: users[loggedUserId], 
     };
 }
+
 export default connect(mapStateToProps)(Home);

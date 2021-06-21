@@ -34,7 +34,7 @@ class App extends React.Component {
   render(){
     return (
       <div onClick={this.handleClick}>
-        <LoadingBar />
+        <LoadingBar style={{backgroundColor: '#0a92cc',}}/>
         <Navbvar />
         <Switch>
           <Route exact path="/login">

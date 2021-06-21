@@ -19,8 +19,9 @@
 }
 
 .navbar__user{
-    margin-left: 42%;
+    margin-left: 38%;
     display: flex;
+    color: #444;
 }
 
 .navbar__user__avatar{
@@ -34,6 +35,15 @@
     padding: 1.2em 0.5em;
 }
 
+.navbar__logout{
+    color: #444;
+    padding: 1.1em 2em;
+    cursor: pointer;
+}
+
+.navbar__logout:hover{
+    color: #0a92cc;
+}
 .navbar-link{
     text-decoration: none;
 }
@@ -54,4 +64,9 @@
 
 a:visited{
     color: inherit;
+}
+
+#login:hover{
+    cursor: pointer;
+    color: #0a92cc;
 }
