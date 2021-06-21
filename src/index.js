@@ -11,6 +11,7 @@ import middleware from './middleware/index';
 import './css/navbar.css';
 import './css/user.css';
 import './css/login.css'
+import './css/question.css'
 
 const state = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
 
