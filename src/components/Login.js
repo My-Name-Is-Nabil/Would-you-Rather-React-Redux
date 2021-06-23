@@ -1,14 +1,10 @@
 import React from 'react';
 import User from './User';
-import { handleReceiveUsers } from '../actions/users';
 import { connect } from 'react-redux';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import { handleSetLoggedUserId } from '../actions/loggedUserId'; 
 import { withRouter, Redirect } from 'react-router-dom';
 class Login extends React.Component{
-    componentDidMount() {
-        this.props.dispatch(handleReceiveUsers());
-    };
     logUserIn = (e, id) => {
         this.props.dispatch(handleSetLoggedUserId(id));
         this.props.history.push('/');

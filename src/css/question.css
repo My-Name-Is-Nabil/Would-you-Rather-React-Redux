@@ -10,15 +10,30 @@
     border-radius: 10px;
 }
 
+.question.home{
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.question.home:hover{
+    transform: translateY(-5px);
+}
+
 .question__author-avatar{
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    border: 2px solid #018786;
+    border: 2px solid #0a92cc;
+}
+
+.question__author-avatar.question-page{
+    margin-top: 1em;
+    padding: 0.6em;
 }
 
 .question__info{
     padding: 1em;
+    width: 100%;
 }
 
 .questions-buttons{
@@ -48,4 +63,47 @@
 
 .unanswered-questions-button.active{
     border-bottom: 2px solid #0a92cc;
+}
+
+#optionOne, #optionTwo {
+    margin: 0.5em 0;
+}
+
+label{
+    padding:0 0.5em;
+}
+
+.question-form__submit{
+    width: 80px;
+    height: 30px;
+    margin: 1em 0;
+    appearance: none;
+    background-color: #0a92cc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.question-form__submit:hover{
+    transform: translateY(-3px);
+}
+
+.percentage-bar{
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 1px;   
+    height: 24px;
+    margin: 0.5em 0;
+}
+
+.percentage-bar__highlight{
+    background-color: #0a92cc;
+    height: 100%;
+}
+
+.question-answer-percentage-results{
+    margin:0.5em 0;
 }

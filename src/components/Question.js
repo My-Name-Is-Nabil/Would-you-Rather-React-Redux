@@ -1,6 +1,6 @@
 export default function Question(props){
     return (
-        <div className="question">      
+        <div onClick={props.onClick} className="question home">      
             <img className="question__author-avatar" src={'http://' + props.author.avatarURL} alt='Avatar' /> 
             <div className="question__info">
                 <div> {props.author.name} asks: </div>

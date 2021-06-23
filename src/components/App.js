@@ -3,13 +3,20 @@ import Navbvar from './Navbar';
 import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Home from './Home';
+import QuestionPage from './QuestionPage';
 import Page404 from './Page404';
+import { handleReceiveUsers } from '../actions/users';
+import { handleReceiveQuestions } from '../actions/questions';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 class App extends React.Component {
   state = {
     isLoginMenuOpen: false,
   };
+  componentDidMount() {
+    this.props.dispatch(handleReceiveUsers());
+    this.props.dispatch(handleReceiveQuestions());
+  }
   handleClick = e => {
     const button = document.querySelector('.login__expand-button');
     if (button){
@@ -43,6 +50,7 @@ class App extends React.Component {
           <Route exact path="/">
             { this.handleHomePage(this.props.loggedUser)}
           </Route>
+          <Route exact path="/question/:id" component={QuestionPage} />
           <Route>
             <Page404 />
           </Route>

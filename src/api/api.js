@@ -1,4 +1,4 @@
-import { _getUsers, _getQuestions } from './_DATA.js';
+import { _getUsers, _getQuestions, _saveQuestionAnswer } from './_DATA.js';
 
 export function getUsers(){
     return _getUsers();
@@ -6,4 +6,8 @@ export function getUsers(){
 
 export function getQuestions(){
     return _getQuestions();
+}
+
+export function saveQuestionAnswer({ loggedUserId, questionId, answer}){
+    return _saveQuestionAnswer({loggedUserId, questionId, answer});
 }

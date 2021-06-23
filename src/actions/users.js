@@ -13,8 +13,8 @@ export function handleReceiveUsers(){
     return dispatch => {
         dispatch(showLoading());
         getUsers().then(users => {
-            dispatch(receiveUsers(users));
-            dispatch(hideLoading());
-        });
+            dispatch(receiveUsers(users))
+        })
+        .then(() => dispatch(hideLoading()));
     }
 }
