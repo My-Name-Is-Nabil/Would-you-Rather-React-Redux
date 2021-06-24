@@ -10,6 +10,8 @@ class QuestionPage extends React.Component{
         const { questions, loggedUserId } = this.props;
         const questionId = this.props.match.params.id;
         const question = questions[questionId];
+        if (!question)
+            return false;
         return question.optionOne.votes.includes(loggedUserId) || question.optionTwo.votes.includes(loggedUserId);
     }
     handleForm(e, questionId){
@@ -73,6 +75,8 @@ class QuestionPage extends React.Component{
         const { users, questions } = this.props;
         const questionId = this.props.match.params.id;
         const question = questions[questionId];
+        if (!question)
+            return <p className="question-not-found"> Question not found!</p>
         const author = users[question.author];
         return (
             <div className="question">      

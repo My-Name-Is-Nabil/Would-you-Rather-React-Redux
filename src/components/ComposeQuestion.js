@@ -9,8 +9,8 @@ class ComposeQuestion extends React.Component{
     handleForm = (e, optionOneText, optionTwoText, author) => {
         e.preventDefault();
         this.props.dispatch(handleAddQuestion( { optionOneText, optionTwoText, author }))
-        .then(question => {
-            this.props.history.push(`/question/${question.id}`)
+        .then(()=> {
+            this.props.history.push('/');
         });
     }
     render(){

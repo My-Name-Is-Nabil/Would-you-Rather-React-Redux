@@ -35,22 +35,22 @@ class App extends React.Component {
       }
     }
   }
-  handleHomePage = loggedUser => {
-    if (loggedUser)
-      return <Home />;
-    return <Redirect to='/login' />;
-  }
+  // handleHomePage = loggedUser => {
+  //   if (loggedUser)
+  //     return <Home />;
+  //   return <Redirect to='/login' />;
+  // }
   render(){
     return (
       <div onClick={this.handleClick}>
         <LoadingBar style={{backgroundColor: '#0a92cc',}}/>
         <Navbvar />
         <Switch>
-          <Route exact path="/login">
-            <Login isOpen={this.state.isLoginMenuOpen} />
-          </Route>
+          {
+            !this.props.loggedUser  ? <Route> <Login isOpen={this.state.isLoginMenuOpen} /> </Route> : null
+          }
           <Route exact path="/">
-            { this.handleHomePage(this.props.loggedUser)}
+            <Home />
           </Route>
           <Route exact path="/question/:id" component={QuestionPage} />
           <Route exact path="/add" component={ComposeQuestion} />

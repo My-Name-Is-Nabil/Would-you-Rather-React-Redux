@@ -18,8 +18,9 @@ class Home extends React.Component{
         if (this.state.showAnsweredQuestions){
             if (questionsLoading)
                 return <p className="questions-loading"> Loading </p>;
-            return this.props.questionsIds.map( id => questions[id])
-            .filter( question => loggedUser.answers[question.id])
+            const qs = this.props.questionsIds.map(id => questions[id])
+            .sort((a,b) => b.timestamp - a.timestamp);
+            return qs.filter( question => loggedUser.answers[question.id])
             .map( question => (<Question key={question.id}
                 onClick={()=> this.handleQuestionClick(question.id)}
                 author={users[question.author]}
@@ -30,8 +31,9 @@ class Home extends React.Component{
         }
         if (questionsLoading)
             return <p className="questions-loading"> Loading </p>;
-        return this.props.questionsIds.map( id => questions[id])
-        .filter( question => !loggedUser.answers[question.id])
+        const qs = this.props.questionsIds.map(id => questions[id])
+        .sort((a,b) => b.timestamp - a.timestamp);
+        return qs.filter( question => !loggedUser.answers[question.id])
         .map( question => (<Question key={question.id}
             onClick={()=> this.handleQuestionClick(question.id)}
             author={users[question.author]}
