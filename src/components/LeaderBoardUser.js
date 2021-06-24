@@ -8,7 +8,7 @@ function LeaderBoardUser(props){
                 </div>
                 <div className="leaderboard__user__scores">
                     <p className="leaderboard-info-field"> Number of questions answered: {Object.keys(props.user.answers).length}</p>
-                    <p className="leaderboard-info-field"> Number of questions answered: {props.user.questions.length}</p>
+                    <p className="leaderboard-info-field"> Number of questions asked: {props.user.questions.length}</p>
                 </div>
             </div>
         </div>
