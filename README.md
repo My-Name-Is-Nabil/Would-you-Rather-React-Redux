@@ -4,7 +4,7 @@ This is a react-redux "would your rather" app.
 
 ## Action creators
 
-In the directory /src/actions resides the files responsible for action creation, these are the functions responsible for creating an action to dispatch.
+In the directory /src/actions reside the files responsible for action creation, these are the functions responsible for creating an action to dispatch.
 
 ## Reducers 
 
@@ -12,7 +12,7 @@ In /src/reducers there are the reducers, the pure functions that are responsible
 
 ## MiddleWare
 
-In src/middleware there are the applied middleware, which are only redux thunk and a simple logger
+In src/middleware there are the applied middlewares, which are only redux thunk and a simple logger
 
 ## Components 
 
@@ -22,7 +22,7 @@ All the react components live in the directory /src/components
 
 Redux thunk is used to facilitate asynchronous actions and dispatches
 
-## React Redux loading bard
+## React Redux loading bar
 
 This loading bar is used to indicate to the user that some actions are in progress
 
