@@ -1,0 +1,24 @@
+.leaderboard{
+    width: 70%;
+    margin: 2em auto;
+}
+
+.leaderboard__user{
+    display: flex;
+    border: 2px solid #0a92cc;
+    margin: 1em 0;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.leaderboard__user__avatar{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin: 1em;
+    margin-left: 0;
+}
+
+.leaderboard-info-field{
+    margin: 0.6em 0;
+}

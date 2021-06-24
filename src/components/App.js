@@ -4,6 +4,8 @@ import LoadingBar from 'react-redux-loading-bar';
 import Login from './Login';
 import Home from './Home';
 import QuestionPage from './QuestionPage';
+import ComposeQuestion from './ComposeQuestion';
+import LeaderBoard from './LeaderBoard';
 import Page404 from './Page404';
 import { handleReceiveUsers } from '../actions/users';
 import { handleReceiveQuestions } from '../actions/questions';
@@ -51,6 +53,8 @@ class App extends React.Component {
             { this.handleHomePage(this.props.loggedUser)}
           </Route>
           <Route exact path="/question/:id" component={QuestionPage} />
+          <Route exact path="/add" component={ComposeQuestion} />
+          <Route exact path="/leaderboard" component={LeaderBoard} />
           <Route>
             <Page404 />
           </Route>

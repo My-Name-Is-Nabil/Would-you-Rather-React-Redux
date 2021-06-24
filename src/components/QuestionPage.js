@@ -52,8 +52,8 @@ class QuestionPage extends React.Component{
                 userAnswer = 1;
             else 
                 userAnswer = 2;
-            let option1 =  question.optionOne.votes.length * 100 / total + '% ' + question.optionOne.text;
-            let option2 =  question.optionTwo.votes.length * 100 / total + '% ' + question.optionTwo.text;
+            let option1 =  Math.round(question.optionOne.votes.length * 100 / total) + '% ' + question.optionOne.text;
+            let option2 =  Math.round(question.optionTwo.votes.length * 100 / total) + '% ' + question.optionTwo.text;
             option1 = userAnswer === 1 ? option1 + ' (your answer)' : option1;
             option2 = userAnswer === 2 ? option2 + ' (your answer)' : option2; 
             return (

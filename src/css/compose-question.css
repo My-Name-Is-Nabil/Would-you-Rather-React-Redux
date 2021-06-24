@@ -1,0 +1,37 @@
+.compose-question{
+    width: 70%;
+    margin: 2.5em auto;
+    text-align: center;
+}
+
+.compose-question-option{
+    margin: 1em 0;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 2px solid #0a92cc;
+    outline: none;
+    padding:1em;
+}
+
+.compose-question__submit{
+    width: 80px;
+    height: 30px;
+    margin: 1em 0;
+    appearance: none;
+    background-color: #0a92cc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.compose-question__submit:hover{
+    transform: translateY(-3px);
+}
+.compose-question__submit[disabled]{
+    background-color: #444;
+    transform: none;
+    cursor: default;
+}
